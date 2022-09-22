@@ -27,7 +27,7 @@ class LoginCubit extends Cubit<LoginStates> {
     emit(LoginLoadingStates());
     await loginUserUseCase(params: params).then(
       (newUser) {
-        emit(LoginSuccessStates());
+        emit(LoginSuccessStates(user: newUser));
         user = newUser;
       },
     ).catchError((error) {

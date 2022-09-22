@@ -6,8 +6,9 @@ import 'core/utils/app_strings.dart';
 import 'features/register/presentation/screens/register_screen.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final Widget mainScreen;
 
+  const MyApp({Key? key, required this.mainScreen}) : super(key: key);
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: mainScreen,
     );
   }
 }

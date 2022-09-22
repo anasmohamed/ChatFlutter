@@ -3,6 +3,7 @@ import 'package:chat/features/register/data/models/registe_user_requset_model.da
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../config/routes/app_routes.dart';
+import '../../../../core/utils/cache_helper.dart';
 import '../../../../core/widgets/default_text_button.dart';
 import '../../../../core/widgets/default_text_field.dart';
 import '../../../register/presentation/screens/register_screen.dart';
@@ -23,6 +24,8 @@ class LoginScreen extends StatelessWidget {
       create: (context) => di.serviceLocator<LoginCubit>(),
       child: BlocConsumer<LoginCubit, LoginStates>(listener: (context, state) {
         if (state is LoginSuccessStates) {
+          CacheHelper.saveData(key: 'uId', value: state.user.uid);
+
           // if (state.baseResponseModel.status) {
           //   showToast(
           //       text: state.baseResponseModel.message,

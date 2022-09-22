@@ -1,3 +1,4 @@
+import 'package:chat/core/utils/cache_helper.dart';
 import 'package:chat/features/register/data/models/user_data_model.dart';
 import 'package:chat/features/register/domain/usecases/add_new_user_to_firestore_usecase.dart';
 import 'package:flutter/material.dart';
@@ -49,6 +50,7 @@ class RegisterScreen extends StatelessWidget {
                       isEmailVerified: true))
                   .then((value) {
                 Navigator.of(context).pop();
+                CacheHelper.saveData(key: 'uId', value: uid);
                 isLoading = false;
               }).catchError((error) {
                 debugPrint("error $error}");
