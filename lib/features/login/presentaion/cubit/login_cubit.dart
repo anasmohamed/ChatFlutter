@@ -23,9 +23,9 @@ class LoginCubit extends Cubit<LoginStates> {
     emit(PasswordTextFieldChangeVisibilityStates());
   }
 
-  Future<User?> loginUser(UserRequestModel loginUserRequestModel) async {
+  Future<User?> loginUser(UserRequestModel params) async {
     emit(LoginLoadingStates());
-    await loginUserUseCase(loginUserRequestModel).then(
+    await loginUserUseCase(params: params).then(
       (newUser) {
         emit(LoginSuccessStates());
         user = newUser;

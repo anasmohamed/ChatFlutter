@@ -12,7 +12,7 @@ class RegisterUserUseCase implements UseCase<User, UserRequestModel> {
     required this.registerUserRepository,
   });
   @override
-  Future<User> call(UserRequestModel newUserInfo) {
-    return registerUserRepository.registerUser(newUserInfo);
+  Future<User> call({required UserRequestModel params}) {
+    return registerUserRepository.registerUser(params);
   }
 }

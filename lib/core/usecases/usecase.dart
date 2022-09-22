@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
 abstract class UseCase<Type, Params> {
-  void call(Params params);
+  Future<Type> call({required Params params});
 }
 
-class NoParams extends Equatable {
+abstract class NoParams extends Equatable {
   @override
   List<Object?> get props => [];
 }

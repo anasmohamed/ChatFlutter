@@ -9,8 +9,13 @@ class LoginUserUseCase implements UseCase<User, UserRequestModel> {
   LoginUserUseCase({
     required this.loginUserRepository,
   });
+
   @override
-  Future<User> call(UserRequestModel newUserInfo) {
-    return loginUserRepository.loginUser(newUserInfo);
+  Future<User> call({required UserRequestModel params}) {
+    return loginUserRepository.loginUser(params);
   }
+  // @override
+  // Future<User> call(UserRequestModel newUserInfo) {
+  //   return loginUserRepository.loginUser(newUserInfo);
+  // }
 }

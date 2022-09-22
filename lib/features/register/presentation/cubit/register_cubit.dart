@@ -26,9 +26,9 @@ class RegisterCubit extends Cubit<RegisterStates> {
 
   Future<User?> registerUser(UserRequestModel registerUserRequestModel) async {
     emit(RegisterLoadingStates());
-    await registerUserUseCase(registerUserRequestModel).then(
+    await registerUserUseCase(params: registerUserRequestModel).then(
       (newUser) {
-        emit(RegisterSuccessStates());
+        emit(RegisterSuccessStates(newUser));
         user = newUser;
       },
     ).catchError((error) {

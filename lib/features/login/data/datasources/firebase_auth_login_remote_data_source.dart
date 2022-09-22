@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../../register/data/models/user_data_model.dart';
 
 class FirebaseAuthenticationLoginRemoteDataSource {
   static final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -9,6 +12,7 @@ class FirebaseAuthenticationLoginRemoteDataSource {
     UserCredential result = await _firebaseAuth.signInWithEmailAndPassword(
         email: email, password: password);
     final user = result.user!;
+
     return user;
   }
 }

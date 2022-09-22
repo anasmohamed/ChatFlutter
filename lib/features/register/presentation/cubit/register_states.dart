@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 abstract class RegisterStates {}
 
 class RegisterInitialStates extends RegisterStates {}
@@ -5,8 +7,8 @@ class RegisterInitialStates extends RegisterStates {}
 class RegisterLoadingStates extends RegisterStates {}
 
 class RegisterSuccessStates extends RegisterStates {
-  // final User user;
-  // RegisterSuccessStates(this.user);
+  final User user;
+  RegisterSuccessStates(this.user);
 }
 
 class RegisterErrorStates extends RegisterStates {}
